@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Stop Watch</title>
+       <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+       <div class="stop-watch">
+            <div class="clock"> 
+              <h1 id="display">00:00:00:00</h1>
+       </div> 
+       </div>
+
+       <div class="btns">
+              <button class="start" onclick="watchStart()">Start</button>
+              <button class="stop" onclick="watchStop()">Stop</button>
+              <button class="reset" onclick="watchReset()">Reset</button>
+       </div>
+</body>
+<script>
+       let [hours,minutes,seconds,milliseconds]=[0,0,0,0];
+       let displayTime=document.getElementById("display")
+       let timer=null;
+       function stopWatch(){
+              milliseconds++
+              if(milliseconds==60){
+                     milliseconds=0
+                     seconds++
+                if(seconds==60){
+                     seconds=0
+                     minutes++
+                     if(minutes==60){
+                            minutes=0
+                            hours++
+                     }
+              }
+       }
+              let h=hours<10 ? "0"+hours:hours;
+              let m=minutes<10 ? "0"+minutes:minutes;
+              let s=seconds<10 ? "0"+seconds:seconds;
+              let ms=milliseconds<10 ? "0"+milliseconds:milliseconds;
+              displayTime.innerHTML=h+":"+m+":"+s+":"+ms
+       }
+       function watchStart(){
+              if(timer!==null){
+                     clearInterval(timer)
+              }
+              timer=setInterval(stopWatch,1);
+       }
+       function watchStop(){
+              clearInterval(timer);
+
+       }
+       function watchReset(){
+              clearInterval(timer);
+              let [hours,minutes,seconds,milliseconds]=[0,0,0,0];
+              displayTime.innerHTML="00:00:00:00"
+              
+       }
+</script>
+</html>

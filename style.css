@@ -1,0 +1,48 @@
+*{
+       padding: 0;
+       margin: 0;
+       font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+
+.stop-watch{
+       position:absolute;
+       top:40%;
+       left:35%;
+}
+
+.clock{
+       background-color:#387ADF;
+       padding:20px;
+       border-radius: 10px;
+}
+h1{
+       font-size: 50px;
+       font-family:cursive;
+}
+
+.btns{
+       position:absolute;
+       top:60%;
+       left:41%;
+       display: flex;
+       column-gap: 20px;
+}
+button{
+       padding:10px;
+       padding-left: 10px;
+       padding-right: 10px;
+       border-radius: 10px;
+       border: none;
+       cursor: pointer;
+       background-color: #50C4ED;
+
+}
+
+
+.btns .start.active{
+       cursor: not-allowed;
+       opacity: 0.8;
+}
+
